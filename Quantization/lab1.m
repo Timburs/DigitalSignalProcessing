@@ -65,7 +65,6 @@ stem(z,'b')
 
 %% 5) Quantization (Rounding)
 
-%%
 % This script creates a signal, and then quantizes it to a specified number
 % of bits.  It then calculates the quantization error.
 % see if you run the script.
@@ -74,7 +73,7 @@ fprintf('\nE71 Lab, Sampling and Quantization\n');
 
 % Choose the input type.
 choice = questdlg('Choose input','Input',...
-    'Sine','Sawtooth','Random','Random');
+    'Sine','Sawtooth','Triangle','Sine');
 
 for b=[2,4,6,8,10]
 
@@ -89,6 +88,8 @@ for b=[2,4,6,8,10]
             x=sin(2*pi*n/N);
         case 'Sawtooth'
             x=sawtooth(2*pi*n/N);
+        case 'Triangle'
+            x=abs(sawtooth(2*pi*n/N));
         case 'Random'
             x=randn(1,N);       % Random data
             x=x/max(abs(x));    % Scale to +/- 1
@@ -108,8 +109,9 @@ for b=[2,4,6,8,10]
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
     SQNR2 = 1.76+6.02*b;
-    
     fprintf('SQNR = %g, SQNR2 = %g\n', SQNR, SQNR2);
+    
+    subplot(3,2,b/2);
     stem(x,'b');
     hold on;
     stem(xq,'r');
@@ -120,3 +122,11 @@ for b=[2,4,6,8,10]
     hold off
 
 end
+
+%% 6) Quantization (Truncation)
+
+%% 7) Quantization (a la Proakis et Manolakis)
+
+%% 8) Oversampling
+
+
