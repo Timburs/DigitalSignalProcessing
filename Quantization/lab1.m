@@ -35,33 +35,56 @@ y = A*square(2*pi*Fs/N*t, 40);
 
 subplot(2,1,1)
 stem(t,x, 'Linewidth',2); axis([0 30 -10 10]);
+title('Sawtooth : A=8, L=30, N=11, Fs=10kHz')
+xlabel('Time in Units of 0.0001s'); ylabel('Amplitude');
 subplot(2,1,2)
 stem(t,y, 'Linewidth',2); axis([0 30 -10 10]);
+title('Square : A=8, L=30, N=11, Fs=10kHz')
+xlabel('Time in Units of 0.0001s'); ylabel('Amplitude');
 grid on;
+
 
 %% 4) Aliasing
 
-t = 0:1/2000:1-1/2000;
-x = sin(2*pi*3*t);
-y = sin(2*pi*7*t);
-z = sin(2*pi*13*t);
-subplot(4,1,1);
-hold on
-plot(t,x,'--r','Linewidth',2)
-plot(t,y,':g','Linewidth',2)
-plot(t,z,'-b.','Linewidth',2)
+t = 0:.0001:.5;
+tenHz = 0:.1:.5;
 
-t = 0:1/10:1-1/10;
-x = sin(2*pi*3*t);
-y = sin(2*pi*7*t);
-z = sin(2*pi*13*t);
+threeHz = sin(2*pi*3*t);
+sevenHz = sin(2*pi*7*t);
+thirteenHz = sin(2*pi*13*t);
+
+hold on
+subplot(4,1,1);
+plot(t,threeHz,'--r',t,sevenHz,':g',t,thirteenHz,'-b.','Linewidth',2);
+legend('3Hz','7Hz','13Hz');
+title('3Hz, 7Hz, 13Hz Sine Waves');
+
+threeHz_sampled = sin(2*pi*3*tenHz);
+sevenHz_sampled = sin(2*pi*7*tenHz);
+thirteenHz_sampled = sin(2*pi*13*tenHz);
+
 hold on
 subplot(4,1,2);
-stem(x,'r')
+stem(tenHz,threeHz_sampled,'r')
+title('3Hz Wave Sampled at 10Hz');
 subplot(4,1,3);
-stem(y,'g')
+stem(tenHz,sevenHz_sampled,'g');
+title('7Hz Wave Sampled at 10Hz');
 subplot(4,1,4);
-stem(z,'b')
+stem(tenHz,thirteenHz_sampled,'b')
+title('13Hz Wave Sampled at 10Hz');
+
+% The sampling theorem states that in order for us to recover a signal, 
+% the frequency at which we sample it must be greater than or equal to 
+% twice the frequency of the message.
+
+% $ f_{sample} \geq 2f_{signal} $
+
+% Since we sample at 10Hz here, the only signal that we can guarantee 
+% recovering correctly must have a frequency of less than or equal to 5Hz. 
+% We can see that we follow these expectations because we would be able to 
+% recover our 3Hz signal but not our 7Hz or 13Hz signals from our samples.
+
 
 %% 5A) Quantization (Rounding)
 % This script creates a signal, and then quantizes it to a specified number
@@ -76,7 +99,7 @@ choice = questdlg('Choose input','Input',...
 
 for b=[2,4,6,8,10]
 
-    N=120;                          % Number of samples in final signal.
+    N=120;                     % Number of samples in final signal.
     n=0:(N-1);                 %Index
 
     fprintf('Bits = %g, levels = %g, signal = %s.\n', b, 2^b, choice);
@@ -119,6 +142,9 @@ for b=[2,4,6,8,10]
     hold off
 
 end
+
+% We list the tables below for comparison of the Exact vs. SQNR numbers.
+% a)
 
 %% 5b) Quantization Cont'd. (Rounding)
 % This script creates a signal, and then quantizes it to a specified number
@@ -246,7 +272,7 @@ choice = questdlg('Choose input','Input',...
 
 for b=[2,4,6,8,10]
 
-    N=120;                          % Number of samples in final signal.
+    N=120;                     % Number of samples in final signal.
     n=0:(N-1);                 %Index
 
     fprintf('Bits = %g, levels = %g, signal = %s.\n', b, 2^b, choice);
