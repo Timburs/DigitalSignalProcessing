@@ -219,7 +219,7 @@ for b=[2,4,6,8,10]
  
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
-    SQNR2 = -4.62+6.02*b;
+    SQNR2 = -4.26+6.02*b;
     
     fprintf('SQNR = %g, SQNR2 = %g\n', SQNR, SQNR2);
     stem(x,'b');
@@ -275,7 +275,7 @@ for b=[2,4,6,8,10]
  
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
-    SQNR2 = 6.02*b;
+    SQNR2 = 6.02*b - 6.02;
     
     figure;
     fprintf('SQNR = %g, SQNR2 = %g\n', SQNR, SQNR2);
@@ -334,9 +334,8 @@ for b=[2,4,6,8,10]
  
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
-    SQNR2 = 1.76+6.02*b;
-    
-    fprintf('SQNR = %g, SQNR2 = %g\n', SQNR, SQNR2);
+       
+    fprintf('SQNR = %g\n', SQNR);
     stem(x,'b');
     hold on;
     stem(xq,'r');
@@ -391,9 +390,8 @@ for b=[2,4,6,8,10]
  
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
-    SQNR2 = 6.02*b;
-    
-    fprintf('SQNR = %g, SQNR2 = %g\n', SQNR, SQNR2);
+       
+    fprintf('SQNR = %g\n', SQNR);
     stem(x,'b');
     hold on;
     stem(xq,'r');
