@@ -384,14 +384,13 @@ for b=[2,4,6,8,10]
     % Quantize a signal to "b" bits.  
     xq=floor((x+1)*2^(b-1));    % Signal is one of 2^n int values (0 to 2^n-1)
     xq=xq/(2^(b-1));            % Signal is from 0 to 2 (quantized)
-    %xq=xq-(2^(b)-1)/2^(b);      % Shift signal down (rounding)
-    xq=round(x*2^(b-1))/2^(b-1);
-    
+    xq=xq-(2^(b)-1)/2^(b);      % Shift signal down (rounding)
+  
     xe=x-xq;                    % Quantization error
  
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
-    SQNR2 = 6.02*b;
+    SQNR2 = 1.76+6.02*b;
     
     fprintf('SQNR = %g, SQNR2 = %g\n', SQNR, SQNR2);
     stem(x,'b');
