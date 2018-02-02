@@ -335,6 +335,7 @@ for b=[2,4,6,8,10]
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
        
+    figure
     fprintf('SQNR = %g\n', SQNR);
     stem(x,'b');
     hold on;
@@ -391,6 +392,7 @@ for b=[2,4,6,8,10]
     % Calculate SQNR
     SQNR = 10*log10(sum(x.^2)/sum(xe.^2));
        
+    figure;
     fprintf('SQNR = %g\n', SQNR);
     stem(x,'b');
     hold on;
