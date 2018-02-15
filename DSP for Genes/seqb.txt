@@ -1,0 +1,40 @@
+LOCUS       XELBETAE                 563 bp    mRNA    linear   VRT 28-APR-1993
+DEFINITION  XX beta globin mRNA, complete cds.
+ACCESSION   M32457
+VERSION     M32457.1  GI:213982
+KEYWORDS    beta-globin.
+SOURCE      XX
+  ORGANISM  XX.
+REFERENCE   1  (bases 1 to 563)
+  AUTHORS   Knochel,W., Korge,E., Basner,A. and Meyerhof,W.
+  TITLE     Globin evolution in the genus XX, comparative analysis of
+            cDNAs coding for adult globin polypeptides of XX and
+            XX
+  JOURNAL   J. Mol. Evol. 23 (3), 211-223 (1986)
+   PUBMED   3100812
+COMMENT     Original source text: XX adult immature red blood cell,
+            cDNA to mRNA.
+FEATURES             Location/Qualifiers
+     source          1..563
+                     /organism="XX"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:8364"
+     CDS             52..495
+                     /note="beta globin protein"
+                     /codon_start=1
+                     /protein_id="AAA49659.1"
+                     /db_xref="GI:213983"
+                     /translation="MVNLTAKERQLITGTWSKICAKTLGKQALGSMLYTYPWTQRYFS
+                     SFGNLSSIEAIFHNAAVATHGEKVLTSIGEAIKHMDDIKGYYAQLSKYHSETLHVDPY
+                     NFKRFCSCTIISMAQTLQEDFTPELQAAFEKLFAAIADALGKGYH"
+ORIGIN      
+        1 aacacaggct ctttttttgc agaagcttaa aataaacgct cagctttgac catggttaat
+       61 ctgacagcaa aggaacgcca gctcatcact ggcacctgga gcaaaatatg tgcaaagacc
+      121 ttgggaaaac aggcccttgg cagtatgctg tatacttatc cttggaccca aagatacttt
+      181 agtagttttg ggaacctcag cagtatcgaa gccatcttcc acaatgcagc tgtggctact
+      241 catggtgaaa aggtgttgac atctattgga gaggccatca aacacatgga tgacataaag
+      301 ggatattatg ctcagctgag caagtaccac tcagaaaccc tacatgtgga tccatacaat
+      361 ttcaagcgct tctgtagctg cacgattatt tccatggctc aaaccctcca agaagacttt
+      421 acacctgagc tacaggctgc tttcgaaaag ctgtttgctg caattgctga tgcccttggc
+      481 aagggttacc actaaaccaa cctcaagaac atgtgactgg agtctcttag ctacacagaa
+      541 acaaaatctc gttttttttc aaa

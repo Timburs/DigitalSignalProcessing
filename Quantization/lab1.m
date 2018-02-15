@@ -74,18 +74,6 @@ subplot(4,1,4);
 stem(tenHz,thirteenHz_sampled,'b')
 title('13Hz Wave Sampled at 10Hz');
 
-% The sampling theorem states that in order for us to recover a signal, 
-% the frequency at which we sample it must be greater than or equal to 
-% twice the frequency of the message.
-
-% $ f_{sample} \geq 2f_{signal} $
-
-% Since we sample at 10Hz here, the only signal that we can guarantee 
-% recovering correctly must have a frequency of less than or equal to 5Hz. 
-% We can see that we follow these expectations because we would be able to 
-% recover our 3Hz signal but not our 7Hz or 13Hz signals from our samples.
-
-
 %% 5A) Quantization (Rounding)
 % This script creates a signal, and then quantizes it to a specified number
 % of bits.  It then calculates the quantization error.
@@ -143,8 +131,6 @@ for b=[2,4,6,8,10]
 
 end
 
-% We list the tables below for comparison of the Exact vs. SQNR numbers.
-% a)
 
 %% 5b) Quantization Cont'd. (Rounding)
 % This script creates a signal, and then quantizes it to a specified number
